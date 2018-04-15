@@ -1,84 +1,49 @@
 package src.proyecto.logic;
 
 import java.util.logging.Level;
+import java.util.TreeMap;
 import java.util.logging.Logger;
 import src.conection.Conector1;
 
 public class Controller {
 
-    Conector1 cn = new Conector1();
-
-    public Controller() {
-
-    }
-
-    public void registrarEmpresa(String razonSocial, String cedulaJuridica, String ubicacion, String direccion,
-            String logo, String telefono) {
-
+    
+    public void addContac(String tipo, String identificacion, String nombre, String puesto, String telefono, String correo) {//Ingresar contactos
         try {
-            Empresa em = new Empresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
-            cn.insertEmpresa(em);
-        } catch (Exception ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Contactos conta;
+            conta = (new multiContactos().insertContact(tipo, identificacion, nombre, puesto, telefono, correo));
+
+        } catch (Exception e) {
         }
 
     }
 
-    public void crearContactos(String tipo, String identificacion, String nombre, String puesto, String telefono,
-            String correo) {
+    public TreeMap contactBuscar(String identificacion) throws Exception {//buscar  contactos por cedula
+        TreeMap datos = null;
+        Contactos conta = null;
+        String nombre;
+        datos = new TreeMap();
+        conta = (new multiContactos()).buscar(identificacion);
+        datos.put("nombre", conta.getNombre());
+        datos.put("identificacion", conta.getIdentificacion());
 
-        try {
-            Contactos conta = new Contactos(tipo, identificacion, nombre, puesto, telefono, correo);
-            cn.insertContact(conta);
-        } catch (Exception ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        return datos;
     }
 
-    public void crearProductos(String nombre, String logo, String descripcion, String formato,
-            CaracteristicasVer caracteristicaVer) {
-
-        try {
-            Productos produ = new Productos(nombre, logo, descripcion, formato, caracteristicaVer);
-            cn.insertProducto(produ);
-
-        } catch (Exception ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+    public void contacActuali(String identificacion, String nombre) throws Exception {
+        Contactos conta;
+        conta = (new multiContactos()).buscar(identificacion);
+        conta.setNombre(nombre);
+        (new multiContactos()).actualizarContacto(conta);
     }
-    public void crearInstalacion(String estado, String fecha, String hora, Empresa empresa, Productos producto, Version version,
-            Tarea tarea){
-    
-    
+
+    public void contacClear(String pidCliente) throws Exception {
+        Contactos conta;
+        conta = (new multiContactos()).buscar(pidCliente);
+        (new multiContactos()).borrar(conta);
     }
-    
 
-    public void crearTarea(String tipo, String codigo, String descripcion, String estado, String responsable) {
-
-        try {
-            Tarea tarea = new Tarea(codigo, descripcion, estado);
-            cn.insertTareas(tarea);
-        } catch (Exception ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-    
-    
-
-    public void crearVersion(String formato, CaracteristicasVer caracteristicaVer) {
-
-        try {
-
-            Version version = new Version(formato);
-            cn.insertVersion(version);
-
-        } catch (Exception ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+}
 
     public void Error(String descripcion, String fecha) throws Exception {
 
@@ -88,40 +53,5 @@ public class Controller {
         
     }
 
-    /*
-	 * public void crearError(String descripcion, String fechaReporte) {
-	 * cl.crearError(descripcion, fechaReporte);
-	 * 
-	 * }
-     */
-    // public void crearMejora(String descripcion) {
-    // cl.crearMejora(descripcion);
-    // }
-    //
-    // public void crearInstalacion(String estado, String fecha, String hora,
-    // Clientes cliente, Productos producto,
-    // Version version, Tarea tarea) {
-    // cl.crearInstalacion(estado, fecha, hora, cliente, producto, version, tarea);
-    // }
-    //
-    //
-    // public String[] getCliente() {
-    // return cl.listClientes();
-    // }
-    //
-    // public String[] getContacto() {
-    // return cl.listContacto();
-    // }
-    //
-    // public String[] getProductos() {
-    // return cl.listProductos();
-    // }
-    //
-    // public String[] getInstalacion() {
-    // return cl.listInstalacion();
-    // }
-    //
-    // public void clearProductos() {
-    // cl.clearProductos();
-    // }
+   
 }
