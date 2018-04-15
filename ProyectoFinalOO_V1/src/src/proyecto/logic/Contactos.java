@@ -10,6 +10,7 @@ public class Contactos {
 	}
 
 	String tipoContacto, identificacion, nombre, puesto, telefono, correo;
+	
 
 	public Contactos() {
 
