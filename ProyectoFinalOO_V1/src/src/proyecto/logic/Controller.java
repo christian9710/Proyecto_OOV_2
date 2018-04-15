@@ -4,10 +4,8 @@ import java.util.logging.Level;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 
-
 public class Controller {
 
-    
     public void addContac(String tipo, String identificacion, String nombre, String puesto, String telefono, String correo) {//Ingresar contactos
         try {
             Contactos conta;
@@ -43,15 +41,10 @@ public class Controller {
         (new multiContactos()).borrar(conta);
     }
 
-}
-
     public void Error(String descripcion, String fecha) throws Exception {
 
-                Error myError ;
-               myError =(new MultiError()).insertar(descripcion, fecha);
-                
-        
-    }
+        Error myError;
+        myError = (new MultiError()).insertar(descripcion, fecha);
 
-   
+    }
 }

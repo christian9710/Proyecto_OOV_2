@@ -15,11 +15,22 @@ public class UI {
     static PrintStream out = System.out;
     
     static MultiError log = new MultiError();
+     static Controller controller = new Controller();
 
     public static void main(String[] args) throws Exception {
         String descripcion = "falla inicio sesión";
         String fecha = "2018_04_04";
         log.insertar(descripcion, fecha);
+        
+        
+        String tipo = "contacto principal";
+        String identificacion = "115790860";
+        String nombre = "Brandon";
+        String puesto = "IT";
+        String telefono = "61316145";
+        String correo = "bfernandez@data.com";
+        controller.addContac(tipo, identificacion, nombre, puesto, telefono, correo);
+        
     }
 
 }
