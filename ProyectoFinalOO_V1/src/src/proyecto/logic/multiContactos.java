@@ -86,4 +86,8 @@ public class multiContactos {
         }
     }
 
+    Contactos insertContact(String tipo, String identificacion, String nombre, String puesto, String telefono, String correo, String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

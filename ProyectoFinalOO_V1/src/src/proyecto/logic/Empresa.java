@@ -40,10 +40,20 @@ public class Empresa {
         this.producto = producto;
         this.instalacion = instalacion;
     }
+    
+    public void agregarCuenta(String tipo, String identificacion, String nombre, String puesto, String telefono, String correo) throws Exception {
+
+		Contactos contacto;
+		contacto = (new multiContactos()).insertContact(tipo, identificacion, nombre, puesto, telefono, correo, this.getId());
+	}
 
     public String getRazonSocial() {
         return razonSocial;
     }
+    
+    public String getId() {
+		return contacto.getIdentificacion();
+	}
 
     public void setRazonSocial(String razonSocial) {
         this.razonSocial = razonSocial;

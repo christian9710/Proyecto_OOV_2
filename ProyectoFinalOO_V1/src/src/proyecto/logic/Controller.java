@@ -47,4 +47,15 @@ public class Controller {
         myError = (new MultiError()).insertar(descripcion, fecha);
 
     }
+    
+    public void addEmpresa(String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
+            String telefono) {//Ingresar contactos
+        try {
+            Empresa empre;
+            empre = (new multiEmpresa().insertEmpresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono));
+
+        } catch (Exception e) {
+        }
+
+    }
 }
