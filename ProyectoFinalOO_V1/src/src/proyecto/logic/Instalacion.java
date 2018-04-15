@@ -78,11 +78,11 @@ public class Instalacion {
     public void setTarea(Tarea tarea) {
         this.tarea = tarea;
     }
-    
+
     public void agregarEmpresa(String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
-            String telefono){
-    
-    
+            String telefono) {
+        Empresa myEmpresa = new Empresa();
+
     }
 
 }
