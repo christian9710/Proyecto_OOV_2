@@ -3,7 +3,7 @@ package src.proyecto.logic;
 import java.util.logging.Level;
 import java.util.TreeMap;
 import java.util.logging.Logger;
-import src.conection.Conector1;
+
 
 public class Controller {
 
