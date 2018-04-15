@@ -1,7 +1,7 @@
 package src.proyecto.logic;
 
 public class Contactos {
-	//brandon
+	//brando
 
 	@Override
 	public String toString() {
