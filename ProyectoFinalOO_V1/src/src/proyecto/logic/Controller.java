@@ -56,6 +56,17 @@ public class Controller {
 
         } catch (Exception e) {
         }
+    }
+    
+     public TreeMap empretBuscar(String razonSocial) throws Exception {//buscar  contactos por cedula
+        TreeMap datos = null;
+        Empresa empre = null;
+        String nombre;
+        datos = new TreeMap();
+        empre = (new multiEmpresa()).buscar(razonSocial);
+        datos.put("nombre", empre.getRazonSocial());
+        datos.put("identificacion", empre.getRazonSocial());
 
+        return datos;
     }
 }
