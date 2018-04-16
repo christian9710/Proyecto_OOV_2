@@ -54,27 +54,35 @@ public class multiEmpresa {
         return empre;
     }
 
-//    public Empresa insertEmpresa_Conta(Empresa empre, Contactos conta) throws
-//            java.sql.SQLException, Exception {
-//
-//        String sql;
-//
-//        sql = "INSERT INTO EMPRESA "
-//                + "VALUES (?,?,?,?,?,?);";
-//
-//        try {
-//            
-//            for (Object object : col) {
-//                
-//            }
-//
-//            Conector.getConector().ejecutarSQL(sql);
-//         
-//
-//            //con.close();
-//        } catch (Exception ex) {
-//            throw new Exception("La empresa ya ha sido registrado previamente, por favor ingrese otro dato");
-//        }
-//        return empre;
-//    }
+    public void actualizarEmpresa(Empresa empre) throws
+            java.sql.SQLException, Exception {
+        String sql;
+        sql = "UPDATE EMPRESA "
+                + "razonSocial=" + empre.getRazonSocial()+ ", "
+                + "cedulaJuridica='" + empre.getCedulaJuridica()+ "', "
+                + "ubicacion='" + empre.getUbicacion()+ "', "
+                + "direccion='" + empre.getDireccion()+ "', "
+                + "logo='" + empre.getLogo()+ "', "
+                + "telefono='" + empre.getTelefono()+ "' "
+                + "WHERE cedulaJuridica='" + empre.getCedulaJuridica()+ "';";
+        try {
+            Conector.getConector().ejecutarSQL(sql);
+        } catch (Exception e) {
+            throw new Exception("No se logro actualizar.");
+        }
+    }
+    
+    public void borrar(Empresa empre) throws
+            java.sql.SQLException, Exception {
+        java.sql.ResultSet rs;
+        String sql;
+        sql = "DELETE FROM EMPRESA "
+                + "WHERE razonSocial='" + empre.getRazonSocial()+ "';";
+        try {
+            Conector.getConector().ejecutarSQL(sql);
+        } catch (Exception e) {
+            throw new Exception("No se ha realizado la limpieza de la tabla");
+        }
+    }
+
 }

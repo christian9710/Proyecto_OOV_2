@@ -47,7 +47,7 @@ public class Controller {
         myError = (new MultiError()).insertar(descripcion, fecha);
 
     }
-    
+
     public void addEmpresa(String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
             String telefono) {//Ingresar contactos
         try {
@@ -57,8 +57,8 @@ public class Controller {
         } catch (Exception e) {
         }
     }
-    
-     public TreeMap empretBuscar(String razonSocial) throws Exception {//buscar  contactos por cedula
+
+    public TreeMap empretBuscar(String razonSocial) throws Exception {//buscar  contactos por cedula
         TreeMap datos = null;
         Empresa empre = null;
         String nombre;
@@ -69,15 +69,31 @@ public class Controller {
 
         return datos;
     }
-     
-     	public void agregarContacEmpre(String tipo, String identificacion, String nombre, String puesto, String _telefono, String correo
-        ,String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo, String telefono
-            ) throws Exception {
-		Empresa empre_contac;
-		empre_contac = (new multiEmpresa()).insertEmpresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
-		empre_contac.agregarContact(tipo, identificacion, nombre, puesto, telefono, correo);
-	}
+
+    public void empreActua(String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
+            String telefono) throws Exception {
+        Empresa empre;
+        empre = (new multiEmpresa()).buscar(razonSocial);
+        empre.setRazonSocial(razonSocial);
+        empre.setCedulaJuridica(cedulaJuridica);
+        empre.setUbicacion(ubicacion);
+        empre.setDireccion(direccion);
+        empre.setLogo(logo);
+        empre.setTelefono(telefono);
+        (new multiEmpresa()).actualizarEmpresa(empre);
+    }
+
+    public void empreClear(String razonSocial) throws Exception {
+        Empresa empre;
+        empre = (new multiEmpresa()).buscar(razonSocial);
+        (new multiEmpresa()).borrar(empre);
+    }
+
+    public void agregarContacEmpre(String tipo, String identificacion, String nombre, String puesto, String _telefono, String correo,
+             String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo, String telefono
+    ) throws Exception {
+        Empresa empre_contac;
+        empre_contac = (new multiEmpresa()).insertEmpresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
+        empre_contac.agregarContact(tipo, identificacion, nombre, puesto, telefono, correo);
+    }
 }
-
-
-
