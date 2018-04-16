@@ -90,7 +90,7 @@ public class Controller {
     }
 
     public void agregarContacEmpre(String tipo, String identificacion, String nombre, String puesto, String _telefono, String correo,
-             String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo, String telefono
+            String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo, String telefono
     ) throws Exception {
         Empresa empre_contac;
         empre_contac = (new multiEmpresa()).insertEmpresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);

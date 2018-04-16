@@ -18,9 +18,10 @@ public class MultiError {
                 + "VALUES( '" + descripcion + "','" + fecha + "')";
 
         try {
-            myError = new Error(descripcion, fecha);
+            
             Conector.getConector().ejecutarSQL(sql);
-        } catch (Exception e) {
+            myError = new Error(descripcion, fecha);
+        } catch (Exception ex) {
 
             throw new Exception("Se agregó correctamente");
 
