@@ -41,7 +41,7 @@ public class Empresa {
         this.instalacion = instalacion;
     }
     
-    public void agregarCuenta(String tipo, String identificacion, String nombre, String puesto, String telefono, String correo) throws Exception {
+    public void agregarContact(String tipo, String identificacion, String nombre, String puesto, String telefono, String correo) throws Exception {
 
 		Contactos contacto;
 		contacto = (new multiContactos()).insertContact(tipo, identificacion, nombre, puesto, telefono, correo, this.getId());
