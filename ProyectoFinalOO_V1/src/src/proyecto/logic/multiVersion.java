@@ -13,8 +13,9 @@ public class multiVersion {
                 + "VALUES( '" + formato + "','" + fechaCreacion + "')";
 
         try {
-            miVersion = new Version(formato, fechaCreacion);
+
             Conector.getConector().ejecutarSQL(sql);
+            miVersion = new Version(formato, fechaCreacion);
         } catch (Exception e) {
             System.out.println(e.getMessage());
 
