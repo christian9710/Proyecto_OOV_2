@@ -96,8 +96,8 @@ public class Controller {
         empre_contac = (new multiEmpresa()).insertEmpresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
         empre_contac.agregarContact(tipo, identificacion, nombre, puesto, telefono, correo);
     }
-    
-    public void addInsta(String estado, String fecha,String hora) {//Ingresar contactos
+
+    public void addInsta(String estado, String fecha, String hora) {//Ingresar contactos
         try {
             Instalacion insta;
             insta = (new MultiIntalacion().insertInstalacion(estado, fecha, hora));
@@ -105,5 +105,15 @@ public class Controller {
         } catch (Exception e) {
         }
 
+    }
+
+    public void addVersion(String numero, String fecha) throws Exception {
+        Version miVersion;
+        miVersion = (new multiVersion()).crearVersion(fecha, fecha);
+    }
+
+    public void addProducto(String nombre, String logo, String descripcion) throws Exception {
+        Productos miProducto;
+        miProducto = (new multiProducto()).agregarProducto(nombre, logo, descripcion);
     }
 }
