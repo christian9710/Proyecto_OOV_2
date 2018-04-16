@@ -10,9 +10,9 @@ public class Empresa {
     }
 
     String nombre, razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono;
-    Contactos contacto;
-    Productos producto;
-    Instalacion instalacion;
+    Contactos contacto;//listo
+    Productos producto;//working on it
+    Instalacion instalacion;//falta
 
     public Empresa() {
 

@@ -22,6 +22,13 @@ public class Instalacion {
         this.version = version;
         this.tarea = tarea;
     }
+    
+     public Instalacion(String estado, String fecha, String hora) {
+        this.estado = estado;
+        this.fecha = fecha;
+        this.hora = hora;
+     
+    }
 
     public String getEstado() {
         return estado;

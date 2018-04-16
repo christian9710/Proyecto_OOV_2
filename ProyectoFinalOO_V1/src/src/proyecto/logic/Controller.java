@@ -96,4 +96,14 @@ public class Controller {
         empre_contac = (new multiEmpresa()).insertEmpresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
         empre_contac.agregarContact(tipo, identificacion, nombre, puesto, telefono, correo);
     }
+    
+    public void addInsta(String estado, String fecha,String hora) {//Ingresar contactos
+        try {
+            Instalacion insta;
+            insta = (new MultiIntalacion().insertInstalacion(estado, fecha, hora));
+
+        } catch (Exception e) {
+        }
+
+    }
 }
