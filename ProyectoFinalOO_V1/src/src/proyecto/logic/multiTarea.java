@@ -69,4 +69,8 @@ public class multiTarea {
         }
     }
 
+    Tarea agregarTarea(String tipo, String codigo, String descripcion, String estado, String responsable, String id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
