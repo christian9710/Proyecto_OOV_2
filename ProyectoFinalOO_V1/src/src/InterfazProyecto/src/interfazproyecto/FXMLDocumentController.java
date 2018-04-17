@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfazproyecto;
+package src.InterfazProyecto.src.interfazproyecto;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import src.proyecto.logic.*;
+        
 
 /**
  *
@@ -21,25 +23,25 @@ import javafx.scene.control.TextField;
 public class FXMLDocumentController implements Initializable {
 
     @FXML
-    private TextField txtnombre;
+    private TextField nombre;
 
     @FXML
-    private TextField txtrazonSocial;
+    private TextField razonSocial;
 
     @FXML
-    private TextField txtCedulaJuridica;
+    private TextField cedulaJuridica;
 
     @FXML
-    private TextField txtubicacion;
+    private TextField ubicacion;
 
     @FXML
-    private TextField txtDireccion;
+    private TextField direccion;
 
     @FXML
-    private TextField txtlogo;
+    private TextField logo;
 
     @FXML
-    private TextField txtTelefono;
+    private TextField telefono;
 
     @FXML
     private Button buttonRegistrar;
@@ -48,7 +50,10 @@ public class FXMLDocumentController implements Initializable {
 
     private void registrar(ActionEvent event) {
         
-    
+        Controller controller=new Controller();
+       
+        controller.addContac(tipo, identificacion, nombre, puesto, _telefono, correo);
+    controller.addEmpresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
     }
 
     public void initialize(URL url, ResourceBundle rb) {
