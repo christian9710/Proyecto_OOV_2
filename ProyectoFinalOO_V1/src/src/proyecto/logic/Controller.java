@@ -91,7 +91,7 @@ public class Controller {
 
     //ingresar listar aqui
     public void listEmpre() {
-            multiEmpresa.listEmpresa();
+        multiEmpresa.listEmpresa();
     }
 
     public void crearVersion(String formato, String fecha) throws Exception {
@@ -142,6 +142,36 @@ public class Controller {
         } catch (Exception e) {
         }
 
+    }
+
+    public TreeMap buscarInsta(String estado) throws Exception {
+        TreeMap datos = null;
+        Instalacion insta = null;
+
+        datos = new TreeMap();
+        insta = (new MultiIntalacion()).buscar(estado);
+        datos.put("estado", insta.getEstado());
+        datos.put("fecha", insta.getFecha());
+        datos.put("hora", insta.getHora());
+
+        return datos;
+    }
+
+    public void instaClear(String estado) throws Exception {
+        Instalacion insta;
+        insta = (new MultiIntalacion()).buscar(estado);
+        (new MultiIntalacion()).borrar(insta);
+    }
+
+    public void instaAct(String nombre, String logo, String descripcion) throws Exception {
+        Productos miProductos;
+        miProductos = (new multiProducto()).buscar(nombre);
+
+        miProductos.setNombre(nombre);
+        miProductos.setLogo(logo);
+        miProductos.setDescripcion(descripcion);
+
+        (new multiProducto()).actualizarProducto(miProductos);
     }
 
     public void agregarProducto(String nombre, String logo, String descripcion) throws Exception {
