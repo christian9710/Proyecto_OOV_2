@@ -98,7 +98,7 @@ public class multiEmpresa {
             sql = "SELECT * FROM Empresa";
             rs = Conector.getConector().ejecutarSQL(sql, true);
 
-            while (rs.next()) {
+           // while (rs.next()) {
 
                 sql = "SELECT * FROM Empresa";
                 rs = Conector.getConector().ejecutarSQL(sql, true);
@@ -124,7 +124,9 @@ public class multiEmpresa {
                 dicEmpre.put("correo", rs.getString("correo"));
                 System.out.println(rs.getString("dicEmpre"));
                 listEmpresa.add(dicEmpre);
-            }
+                
+               
+            //}
             String prueba = "it works!!";
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
