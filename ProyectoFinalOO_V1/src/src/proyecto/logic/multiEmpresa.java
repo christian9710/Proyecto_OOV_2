@@ -5,6 +5,10 @@
  */
 package src.proyecto.logic;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import src.conection.Conector;
 
 public class multiEmpresa {
@@ -58,31 +62,74 @@ public class multiEmpresa {
             java.sql.SQLException, Exception {
         String sql;
         sql = "UPDATE EMPRESA "
-                + "razonSocial=" + empre.getRazonSocial()+ ", "
-                + "cedulaJuridica='" + empre.getCedulaJuridica()+ "', "
-                + "ubicacion='" + empre.getUbicacion()+ "', "
-                + "direccion='" + empre.getDireccion()+ "', "
-                + "logo='" + empre.getLogo()+ "', "
-                + "telefono='" + empre.getTelefono()+ "' "
-                + "WHERE cedulaJuridica='" + empre.getCedulaJuridica()+ "';";
+                + "razonSocial=" + empre.getRazonSocial() + ", "
+                + "cedulaJuridica='" + empre.getCedulaJuridica() + "', "
+                + "ubicacion='" + empre.getUbicacion() + "', "
+                + "direccion='" + empre.getDireccion() + "', "
+                + "logo='" + empre.getLogo() + "', "
+                + "telefono='" + empre.getTelefono() + "' "
+                + "WHERE cedulaJuridica='" + empre.getCedulaJuridica() + "';";
         try {
             Conector.getConector().ejecutarSQL(sql);
         } catch (Exception e) {
             throw new Exception("No se logro actualizar.");
         }
     }
-    
+
     public void borrar(Empresa empre) throws
             java.sql.SQLException, Exception {
         java.sql.ResultSet rs;
         String sql;
         sql = "DELETE FROM EMPRESA "
-                + "WHERE razonSocial='" + empre.getRazonSocial()+ "';";
+                + "WHERE razonSocial='" + empre.getRazonSocial() + "';";
         try {
             Conector.getConector().ejecutarSQL(sql);
         } catch (Exception e) {
             throw new Exception("No se ha realizado la limpieza de la tabla");
         }
+    }
+
+    public static void listEmpresa() {
+        try {
+
+            String sql;
+            java.sql.ResultSet rs;
+            List<Map<String, String>> listEmpresa = new ArrayList<>();
+            sql = "SELECT * FROM Empresa";
+            rs = Conector.getConector().ejecutarSQL(sql, true);
+
+            while (rs.next()) {
+
+                sql = "SELECT * FROM Empresa";
+                rs = Conector.getConector().ejecutarSQL(sql, true);
+
+                Map<String, String> dicContacto = new HashMap<>();
+                dicContacto.put("razonSocial", rs.getString("razonSocial"));
+                dicContacto.put("cedulaJuridica", rs.getString("cedulaJuridica"));
+                dicContacto.put("ubicacion", rs.getString("ubicacion"));
+                dicContacto.put("direccion", rs.getString("direccion"));
+                dicContacto.put("logo", rs.getString("logo"));
+                dicContacto.put("telefono", rs.getString("telefono"));
+                System.out.println(rs.getString("dicContacto"));
+                listEmpresa.add(dicContacto);
+
+                sql = "SELECT * FROM Contacto";
+                rs = Conector.getConector().ejecutarSQL(sql, true);
+                Map<String, String> dicEmpre = new HashMap<>();
+                dicEmpre.put("tipo", rs.getString("cedulaJuridica"));
+                dicEmpre.put("identificacion", rs.getString("ubicacion"));
+                dicEmpre.put("nombre", rs.getString("direccion"));
+                dicEmpre.put("puesto", rs.getString("logo"));
+                dicEmpre.put("telefono", rs.getString("telefono"));
+                dicEmpre.put("correo", rs.getString("correo"));
+                System.out.println(rs.getString("dicEmpre"));
+                listEmpresa.add(dicEmpre);
+            }
+            String prueba = "it works!!";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
     }
 
 }
