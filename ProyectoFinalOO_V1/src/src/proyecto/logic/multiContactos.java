@@ -90,4 +90,31 @@ public class multiContactos {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public static void listContact() {
+        try {
+
+            String sql;
+            java.sql.ResultSet rs;
+            sql = "SELECT * FROM contacto";
+            rs = Conector.getConector().ejecutarSQL(sql, true);
+            List<Map<String, String>> listContacto = new ArrayList<>();
+            while (rs.next()) {
+
+                Map<String, String> dicContacto = new HashMap<>();
+                dicContacto.put("tipo", rs.getString("tipo"));
+                dicContacto.put("identificacion", rs.getString("identificacion"));
+                dicContacto.put("nombre", rs.getString("nombre"));
+                dicContacto.put("puesto", rs.getString("puesto"));
+                dicContacto.put("telefonos", rs.getString("telefonos"));
+                dicContacto.put("correo", rs.getString("correo"));
+                System.out.println(rs.getString("dicContacto"));
+
+                listContacto.add(dicContacto);
+            }
+            String prueba = "it works!!";
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
 }
