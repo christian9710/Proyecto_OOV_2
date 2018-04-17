@@ -17,6 +17,10 @@ public class Productos {
     public Productos() {
 
     }
+    
+      public Productos(String nombre, String logo, String descripcion, String formato, CaracteristicasVer caracteristicaVer) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
 

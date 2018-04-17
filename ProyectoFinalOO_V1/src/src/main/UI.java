@@ -31,6 +31,8 @@ public class UI {
         String correo = "bfernandez@data.com";
         controller.addContac(tipo, identificacion, nombre, puesto, telefono, correo);
         
+        
+        
     }
 
 }

@@ -114,6 +114,6 @@ public class Controller {
 
     public void addProducto(String nombre, String logo, String descripcion) throws Exception {
         Productos miProducto;
-        miProducto = (new multiProducto()).agregarProducto(nombre, logo, descripcion);
+        //miProducto = (new multiProducto()).agregarProducto(nombre, logo, descripcion);
     }
 }

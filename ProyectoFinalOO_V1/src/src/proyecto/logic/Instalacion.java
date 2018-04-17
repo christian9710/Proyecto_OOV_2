@@ -12,6 +12,19 @@ public class Instalacion {
 
     }
 
+    public Instalacion(String estado, String fecha, String hora) {
+        this.estado = estado;
+        this.fecha = fecha;
+        this.hora = hora;
+
+    }
+
+    public void agregarEmpresa(String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
+            String telefono) {
+        Empresa myEmpresa = new Empresa();
+
+    }
+
     public Instalacion(String estado, String fecha, String hora, Empresa empresa, Productos producto, Version version,
             Tarea tarea) {
         this.estado = estado;
@@ -21,13 +34,6 @@ public class Instalacion {
         this.producto = producto;
         this.version = version;
         this.tarea = tarea;
-    }
-    
-     public Instalacion(String estado, String fecha, String hora) {
-        this.estado = estado;
-        this.fecha = fecha;
-        this.hora = hora;
-     
     }
 
     public String getEstado() {
@@ -86,9 +92,7 @@ public class Instalacion {
         this.tarea = tarea;
     }
 
-    public void agregarEmpresa(String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
-            String telefono) {
-        Empresa myEmpresa = new Empresa();
+    public void agregarProducto(String nombre, String logo, String descripcion, Version version) {
 
     }
 
