@@ -58,5 +58,20 @@ public class multiVersion {
             throw new Exception("No se ha realizado la limpieza de la tabla");
         }
     }
+    
+    public void actualizarVersion(Version version) throws
+            java.sql.SQLException, Exception {
+        String sql;
+        sql="UPDATE version "+
+		"SET formato="+version.getFormato()+", "+
+		"fechaCreacion='"+version.getFechaCreacion()+"', "+
+		
+		"WHERE numero='"+version.getFormato()+"';";
+        try {
+            Conector.getConector().ejecutarSQL(sql);
+        } catch (Exception e) {
+            throw new Exception("No se logro actualizar.");
+        }
+    }
 
 }

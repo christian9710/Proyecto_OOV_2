@@ -89,6 +89,38 @@ public class Controller {
         (new multiEmpresa()).borrar(empre);
     }
 
+    public void crearVersion(String formato, String fecha) throws Exception {
+        Version miVersion;
+        miVersion = (new multiVersion()).crearVersion(formato, fecha);
+    }
+    
+    public TreeMap buscarVersion(String formato) throws Exception {
+        TreeMap datos = null;
+        Version ver = null;
+        String nombre;
+        datos = new TreeMap();
+        ver = (new multiVersion()).buscar(formato);
+        datos.put("formato", ver.getFormato());
+        datos.put("fechaCreacion", ver.getFechaCreacion());
+        
+        return datos;
+    }
+    
+    public void VersionClear(String formato) throws Exception {
+        Version miVersion;
+        miVersion = (new multiVersion()).buscar(formato);
+        (new multiVersion()).borrar(miVersion);
+    }
+    
+    public void VersionActu(String formato, String fecha) throws Exception {
+        Version miVersion;
+        
+        miVersion = (new multiVersion()).buscar(formato);
+        miVersion.setFormato(formato);
+        miVersion.setFechaCreacion(fecha);
+        (new multiVersion()).actualizarVersion(miVersion);
+    }
+
     public void agregarContacEmpre(String tipo, String identificacion, String nombre, String puesto, String _telefono, String correo,
             String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo, String telefono
     ) throws Exception {
@@ -107,13 +139,54 @@ public class Controller {
 
     }
 
-    public void addVersion(String numero, String fecha) throws Exception {
-        Version miVersion;
-        miVersion = (new multiVersion()).crearVersion(fecha, fecha);
-    }
-
-    public void addProducto(String nombre, String logo, String descripcion) throws Exception {
+     public void agregarProducto(String nombre, String logo, String descripcion) throws Exception {
         Productos miProducto;
-        //miProducto = (new multiProducto()).agregarProducto(nombre, logo, descripcion);
+        miProducto = (new multiProducto()).agregarProducto(nombre, logo, descripcion);
     }
+    
+    public TreeMap buscarProducto(String nombre) throws Exception {
+        TreeMap datos = null;
+        Productos produc = null;
+        
+        datos = new TreeMap();
+        produc = (new multiProducto()).buscar(nombre);
+        datos.put("nombre", produc.getNombre());
+        datos.put("logo", produc.getLogo());
+        datos.put("descripcion", produc.getDescripcion());
+        
+        return datos;
+    }
+    
+    public void produClear(String nombre) throws Exception {
+        Productos miProductos;
+        miProductos = (new multiProducto()).buscar(nombre);
+        (new multiProducto()).borrar(miProductos);
+    }
+    
+    public void productAct(String nombre, String logo, String descripcion) throws Exception {
+        Productos miProductos;
+        miProductos = (new multiProducto()).buscar(nombre);
+        
+        miProductos.setNombre(nombre);
+        miProductos.setLogo(logo);
+        miProductos.setDescripcion(descripcion);
+        
+        (new multiProducto()).actualizarProducto(miProductos);
+    }
+    
+    public void addTareas(String tipo, String codigo, String descripcion, String estado, String responsable) throws Exception {
+        Tarea miTarea;
+        miTarea = (new multiTarea()).agregarTarea(tipo, codigo, descripcion, estado, responsable);
+    }
+    
+    public void tareaAc(String codigo, String estado) throws Exception {
+        Tarea miTarea;
+        miTarea = (new multiTarea()).buscarTarea(codigo);
+        
+        miTarea.setCodigo(codigo);
+        miTarea.setEstado(estado);
+        
+        (new multiTarea()).actualizarTareaEstado(miTarea);
+    }
+    
 }
