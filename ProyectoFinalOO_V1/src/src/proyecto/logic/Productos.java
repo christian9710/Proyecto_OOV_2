@@ -13,6 +13,15 @@ public class Productos {
         setNumeroVersion(pnumeroVersion);
         version = null;
     }
+    
+       public Productos(String nombre, String logo, String descripcion) {
+        this.nombre = nombre;
+        this.logo = logo;
+        this.descripcion = descripcion;
+        
+       
+    }
+
 
     public Productos() {
 
