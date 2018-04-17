@@ -1,5 +1,7 @@
 package src.proyecto.logic;
 
+import static src.proyecto.logic.Error.descripcion;
+
 public class Instalacion {
 
     String estado, fecha, hora;
@@ -17,6 +19,12 @@ public class Instalacion {
         this.fecha = fecha;
         this.hora = hora;
 
+    }
+
+    public void agregarTarea_Insta(String tipo, String codigo, String descripcion, String estado, String responsable) throws Exception {
+
+        Tarea tarea;
+        tarea = (new multiTarea()).agregarTarea(tipo, codigo, descripcion, estado, responsable, this.getId());
     }
 
     public void agregarEmpresa(String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
@@ -38,6 +46,10 @@ public class Instalacion {
 
     public String getEstado() {
         return estado;
+    }
+
+    public String getId() {
+        return tarea.getEstado();
     }
 
     public void setEstado(String estado) {
