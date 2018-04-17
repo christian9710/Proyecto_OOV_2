@@ -52,8 +52,8 @@ public class FXMLDocumentController implements Initializable {
         
         Controller controller=new Controller();
        
-        controller.addContac(tipo, identificacion, nombre, puesto, _telefono, correo);
-    controller.addEmpresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
+     /*   controller.addContac(tipo, identificacion, nombre, puesto, _telefono, correo);
+    controller.addEmpresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);*/
     }
 
     public void initialize(URL url, ResourceBundle rb) {
