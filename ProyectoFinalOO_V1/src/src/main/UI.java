@@ -41,7 +41,7 @@ public class UI {
         controller.addContac(tipo, identificacion, nombre, puesto, telefono, correo);
         
         
-        empre.listEmpresa();
+        controller.listEmpre();
         
         
     }
