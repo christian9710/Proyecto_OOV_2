@@ -246,7 +246,7 @@ public class Ui {
 
             case 7:
                 mostrarMenu();
-                       
+
                 break;
             case 8:
                 noSalir = false;
@@ -328,7 +328,7 @@ public class Ui {
         controller.instaAct(estado, fecha, hora);
 
     }
-    
+
     public static void menuList() throws IOException, Exception {
 
         int opc;
@@ -372,30 +372,26 @@ public class Ui {
         switch (popcion) {
             case 1:
 
-                modificarContact();
+                listContact();
+                ListEmpre();
 
                 break;
 
             case 2:
-                modificarProduct();
+                listProduct();
 
                 break;
 
             case 3:
-                modificarInsta();
+                listInstala();
 
                 break;
 
             case 4:
-                modificarTarea();
+                menuModificar();
 
                 break;
             case 5:
-                modificarEstadoInst();
-
-                break;
-
-            case 8:
                 noSalir = false;
                 break;
 
@@ -407,5 +403,20 @@ public class Ui {
         return noSalir;
     }
 
+    public static void listContact() {
+
+    }
+
+    public static void ListEmpre() {
+
+    }
+
+    public static void listProduct() {
+
+    }
+
+    public static void listInstala() {
+
+    }
 
 }
