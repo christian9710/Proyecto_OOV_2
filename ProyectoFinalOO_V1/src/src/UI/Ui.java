@@ -265,12 +265,21 @@ public class Ui {
     public static void modificarContact() {
 
         try {
-            String identificacion, nombre;
-            out.println("Ingrese la cedula del contacto a modificar");
-            identificacion = in.readLine();
-            out.println("Ingrese el nombre del contacto a modificar");
+             String tipoContacto, identificacion, nombre, puesto, telefono, correo;
+            out.println("Ingrese el nombre del contacto : ");
             nombre = in.readLine();
-            controller.contacActuali(identificacion, nombre);
+            out.println("Ingrese la cedula del contacto : ");
+            identificacion = in.readLine();
+            out.println("Ingrese el telefono del contacto : ");
+            telefono = in.readLine();
+            out.println("Ingrese el tipo de contacto : ");
+            tipoContacto = in.readLine();
+            out.println("Ingrese el puesto del contacto : ");
+            puesto = in.readLine();
+            out.println("Ingrese el correo electronico del contacto : ");
+            correo = in.readLine();
+
+            controller.contacActuali(tipoContacto, identificacion, nombre, puesto, telefono, correo);
         } catch (Exception ex) {
 
         }

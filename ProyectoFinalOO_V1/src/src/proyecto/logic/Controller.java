@@ -29,10 +29,15 @@ public class Controller {
         return datos;
     }
 
-    public void contacActuali(String identificacion, String nombre) throws Exception {
+    public void contacActuali(String tipo, String identificacion, String nombre, String puesto, String telefono, String correo) throws Exception {
         Contactos conta;
         conta = (new multiContactos()).buscar(identificacion);
+        conta.setTipo(tipo);
         conta.setNombre(nombre);
+        conta.setIdentificacion(identificacion);
+        conta.setPuesto(puesto);
+        conta.setTelefono(telefono);
+        conta.setCorreo(correo);
         (new multiContactos()).actualizarContacto(conta);
     }
 
