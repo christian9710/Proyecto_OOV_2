@@ -11,7 +11,7 @@ public class Ui {
     static PrintStream out = System.out;
     static Controller controller = new Controller();
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, Exception {
         int opc;
         boolean noSalir = true;
 
@@ -46,7 +46,7 @@ public class Ui {
         return opcion;
     }
 
-    public static boolean ejecutarAccion(int popcion) throws IOException {
+    public static boolean ejecutarAccion(int popcion) throws IOException, Exception {
         boolean noSalir = true;
         switch (popcion) {
             case 1:
@@ -173,7 +173,7 @@ public class Ui {
         }
     }
 
-    public static void menuModificar() throws IOException {
+    public static void menuModificar() throws IOException, Exception {
 
         int opc;
         boolean noSalir = true;
@@ -210,7 +210,7 @@ public class Ui {
         return opcion;
     }
 
-    public static boolean ejecutarAccionMod(int popcion) throws IOException {
+    public static boolean ejecutarAccionMod(int popcion) throws IOException, Exception {
         boolean noSalir = true;
         switch (popcion) {
             case 1:
