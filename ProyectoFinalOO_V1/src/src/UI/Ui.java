@@ -196,7 +196,8 @@ public class Ui {
         out.println("4.  Modificar estado de las tareas");
         out.println("5.  Modificar estado de las instalaciones");
         out.println("6.  Menu Listar");
-        out.println("7.  Salir.");
+        out.println("7.  Regresar la menu principal");
+        out.println("8.  Salir.");
         out.println();
     }
 
@@ -239,11 +240,13 @@ public class Ui {
                 break;
 
             case 6:
+                menuList();
 
                 break;
 
             case 7:
-
+                mostrarMenu();
+                       
                 break;
             case 8:
                 noSalir = false;
@@ -325,5 +328,84 @@ public class Ui {
         controller.instaAct(estado, fecha, hora);
 
     }
+    
+    public static void menuList() throws IOException, Exception {
+
+        int opc;
+        boolean noSalir = true;
+
+        do {
+            mostrarMenuMod();
+            opc = leerOpcionMod();
+            noSalir = ejecutarAccionMod(opc);
+        } while (noSalir);
+
+    }
+
+    static void mostrarMenuList() {
+        out.println();
+        out.println("Menu de opciones del sistema");
+        out.println();
+        out.println("1.  Modificar Clientes");
+        out.println("2.  Modificar productos.");
+        out.println("3.  Modificar instalaciones.");
+        out.println("4.  Modificar estado de las tareas");
+        out.println("5.  Modificar estado de las instalaciones");
+        out.println("6.  Menu Listar");
+        out.println("7.  Regresar la menu principal");
+        out.println("8.  Salir.");
+        out.println();
+    }
+
+    static int leerOpcionList() throws IOException {
+        int opcion;
+
+        out.print("Selecciones su opcion: ");
+        opcion = Integer.parseInt(in.readLine());
+        out.println();
+
+        return opcion;
+    }
+
+    public static boolean ejecutarAccionList(int popcion) throws IOException, Exception {
+        boolean noSalir = true;
+        switch (popcion) {
+            case 1:
+
+                modificarContact();
+
+                break;
+
+            case 2:
+                modificarProduct();
+
+                break;
+
+            case 3:
+                modificarInsta();
+
+                break;
+
+            case 4:
+                modificarTarea();
+
+                break;
+            case 5:
+                modificarEstadoInst();
+
+                break;
+
+            case 8:
+                noSalir = false;
+                break;
+
+            default:
+                out.println("Opcion Invalidad");
+                out.println();
+                break;
+        }
+        return noSalir;
+    }
+
 
 }
