@@ -346,14 +346,11 @@ public class Ui {
         out.println();
         out.println("Menu de opciones del sistema");
         out.println();
-        out.println("1.  Modificar Clientes");
-        out.println("2.  Modificar productos.");
-        out.println("3.  Modificar instalaciones.");
-        out.println("4.  Modificar estado de las tareas");
-        out.println("5.  Modificar estado de las instalaciones");
-        out.println("6.  Menu Listar");
-        out.println("7.  Regresar la menu principal");
-        out.println("8.  Salir.");
+        out.println("1.  Listar Clientes");
+        out.println("2.  Listar productos.");
+        out.println("3.  Listar instalaciones.");
+        out.println("4.  Regresar");
+        out.println("5.  Salir.");
         out.println();
     }
 
@@ -425,7 +422,10 @@ public class Ui {
     }
 
     public static void listInstala() {
-
+        try {
+            controller.listInsta();
+        } catch (Exception e) {
+        }
     }
 
 }
