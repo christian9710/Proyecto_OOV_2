@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import src.proyecto.logic.Controller;
 
 /**
  *
@@ -27,7 +28,7 @@ public class FXMLDocumentController implements Initializable {
     private TextField ubicacion;
 
     @FXML
-    private TextField pnombre;
+    private TextField _nombre;
 
     @FXML
     private TextField direccion;
@@ -62,6 +63,9 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     void event(ActionEvent event) {
+        
+        Controller contro=new Controller();
+        contro.agregarContacEmpre(tipo, identificacion, nombre, puesto, _telefono, correo, razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
 
     }
 

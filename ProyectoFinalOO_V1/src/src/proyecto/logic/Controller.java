@@ -3,6 +3,7 @@ package src.proyecto.logic;
 import java.util.logging.Level;
 import java.util.TreeMap;
 import java.util.logging.Logger;
+import javafx.scene.control.TextField;
 
 public class Controller {
 
@@ -163,15 +164,15 @@ public class Controller {
         (new MultiIntalacion()).borrar(insta);
     }
 
-    public void instaAct(String nombre, String logo, String descripcion) throws Exception {
-        Productos miProductos;
-        miProductos = (new multiProducto()).buscar(nombre);
+    public void instaAct(String estado,String fecha,String  hora) throws Exception {
+           Instalacion insta;
+        insta = (new MultiIntalacion()).buscar(estado);
 
-        miProductos.setNombre(nombre);
-        miProductos.setLogo(logo);
-        miProductos.setDescripcion(descripcion);
+        insta.setEstado(estado);
+        insta.setFecha(fecha);
+        insta.setHora(hora);
 
-        (new multiProducto()).actualizarProducto(miProductos);
+        (new MultiIntalacion()).actualizarInstalacion(insta);
     }
 
     public void agregarProducto(String nombre, String logo, String descripcion) throws Exception {
@@ -223,5 +224,7 @@ public class Controller {
 
         (new multiTarea()).actualizarTareaEstado(miTarea);
     }
+
+    
 
 }
