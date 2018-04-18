@@ -13,19 +13,19 @@ import src.conection.Conector;
 
 public class multiEmpresa {
 
-    public Empresa insertEmpresa(String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
+    public Empresa insertEmpresa(String nombre,String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
             String telefono) throws
             java.sql.SQLException, Exception {
         Empresa empre = null;
         String sql;
 
         sql = "INSERT INTO EMPRESA "
-                + "VALUES ('" + razonSocial + "','" + cedulaJuridica + "','" + ubicacion + "','" + direccion + "','" + logo + "','" + telefono + "');";
+                + "VALUES ('" + nombre + "'+'" + razonSocial + "','" + cedulaJuridica + "','" + ubicacion + "','" + direccion + "','" + logo + "','" + telefono + "');";
 
         try {
 
             Conector.getConector().ejecutarSQL(sql);
-            empre = new Empresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
+            empre = new Empresa(nombre,razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
 
             //con.close();
         } catch (Exception ex) {
@@ -45,6 +45,7 @@ public class multiEmpresa {
         rs = Conector.getConector().ejecutarSQL(sql, true);
         if (rs.next()) {
             empre = new Empresa(
+                    rs.getString("nombre"),
                     rs.getString("razonSocial"),
                     rs.getString("cedulaJuridica"),
                     rs.getString("ubicacion"),
@@ -62,6 +63,7 @@ public class multiEmpresa {
             java.sql.SQLException, Exception {
         String sql;
         sql = "UPDATE EMPRESA "
+                 + "nombre=" + empre.getNombre() + ", "
                 + "razonSocial=" + empre.getRazonSocial() + ", "
                 + "cedulaJuridica='" + empre.getCedulaJuridica() + "', "
                 + "ubicacion='" + empre.getUbicacion() + "', "
@@ -104,6 +106,7 @@ public class multiEmpresa {
                 rs = Conector.getConector().ejecutarSQL(sql, true);
 
                 Map<String, String> dicContacto = new HashMap<>();
+                dicContacto.put("nombre", rs.getString("nombre"));
                 dicContacto.put("razonSocial", rs.getString("razonSocial"));
                 dicContacto.put("cedulaJuridica", rs.getString("cedulaJuridica"));
                 dicContacto.put("ubicacion", rs.getString("ubicacion"));

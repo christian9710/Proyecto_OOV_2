@@ -113,7 +113,9 @@ public class Ui {
     public static void registrarEmpresa() {
 
         try {
-            String razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono;
+            String nombre, razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono;
+            out.println("Ingrese el nombre de la empresa : ");
+            nombre = in.readLine();
             out.println("Ingrese la ubicacion de la empresa : ");
             ubicacion = in.readLine();
             out.println("Ingrese la direccion de la empresa : ");
@@ -127,7 +129,7 @@ public class Ui {
             out.println("Ingrese el telefono de la empresa : ");
             telefono = in.readLine();
 
-            controller.addEmpresa(ubicacion, direccion, cedulaJuridica, razonSocial, logo, telefono);
+            controller.addEmpresa(nombre, razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
 
         } catch (Exception e) {
         }
@@ -410,7 +412,7 @@ public class Ui {
     }
 
     public static void ListEmpre() {
-    controller.listEmpre();
+        controller.listEmpre();
     }
 
     public static void listProduct() {

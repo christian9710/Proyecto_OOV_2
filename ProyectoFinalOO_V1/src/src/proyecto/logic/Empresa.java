@@ -18,8 +18,9 @@ public class Empresa {
 
     }
 
-    public Empresa(String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
+    public Empresa(String nombre,String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
             String telefono) {
+        this.nombre=nombre;
         this.razonSocial = razonSocial;
         this.cedulaJuridica = cedulaJuridica;
         this.ubicacion = ubicacion;
@@ -87,7 +88,14 @@ public class Empresa {
         return logo;
     }
 
-    public void setLogo(String logo) {
+    public void setLogo(String nombre) {
+        this.nombre = nombre;
+    }
+     public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
         this.logo = logo;
     }
 

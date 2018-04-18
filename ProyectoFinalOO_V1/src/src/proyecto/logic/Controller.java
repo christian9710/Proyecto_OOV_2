@@ -49,11 +49,11 @@ public class Controller {
 
     }
 
-    public void addEmpresa(String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
+    public void addEmpresa(String nombre, String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
             String telefono) {//Ingresar contactos
         try {
             Empresa empre;
-            empre = (new multiEmpresa().insertEmpresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono));
+            empre = (new multiEmpresa().insertEmpresa(nombre,razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono));
 
         } catch (Exception e) {
         }
@@ -145,11 +145,11 @@ public class Controller {
         (new multiVersion()).actualizarVersion(miVersion);
     }
 
-    public void agregarContacEmpre(String tipo, String identificacion, String nombre, String puesto, String _telefono, String correo,
+    public void agregarContacEmpre(String tipo, String identificacion, String nombre, String puesto, String _telefono, String correo,String _nombre,
             String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo, String telefono
     ) throws Exception {
         Empresa empre_contac;
-        empre_contac = (new multiEmpresa()).insertEmpresa(razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
+        empre_contac = (new multiEmpresa()).insertEmpresa(_nombre,razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
         empre_contac.agregarContact(tipo, identificacion, nombre, puesto, telefono, correo);
     }
 
