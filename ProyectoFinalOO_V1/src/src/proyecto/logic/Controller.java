@@ -94,6 +94,24 @@ public class Controller {
     public void listEmpre() {
         multiEmpresa.listEmpresa();
     }
+    
+    public void listProducto() throws Exception {
+      multiProducto.listarProducto();
+            
+      }
+    
+    public void listContact() throws Exception {
+      multiContactos.listContact();
+            
+      }
+    
+      public void listInsta() throws Exception {
+          try {
+              MultiIntalacion.listarInstalacion();
+          } catch (Exception e) {
+          }
+            
+      }
 
     public void crearVersion(String formato, String fecha) throws Exception {
         Version miVersion;

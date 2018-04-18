@@ -75,7 +75,7 @@ public class MultiIntalacion {
         }
     }
 
-    public void listarInstalacion() throws Exception {
+    public static void listarInstalacion() throws Exception {
         Instalacion insta = null;
         java.sql.ResultSet rs;
         String sql;

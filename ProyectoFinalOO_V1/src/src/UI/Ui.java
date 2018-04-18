@@ -404,16 +404,24 @@ public class Ui {
     }
 
     public static void listContact() {
-        controller.listEmpre();
+        try {
+            controller.listContact();
+        } catch (Exception ex) {
+            Logger.getLogger(Ui.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
     public static void ListEmpre() {
-
+    controller.listEmpre();
     }
 
     public static void listProduct() {
-
+        try {
+            controller.listProducto();
+        } catch (Exception ex) {
+            Logger.getLogger(Ui.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public static void listInstala() {

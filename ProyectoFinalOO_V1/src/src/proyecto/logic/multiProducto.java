@@ -83,7 +83,7 @@ public class multiProducto {
         }
     }
       
-      public void listarProducto() throws Exception{
+      public static void listarProducto() throws Exception{
            Productos prod = null;
         java.sql.ResultSet rs;
         String sql;
