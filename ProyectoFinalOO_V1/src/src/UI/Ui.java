@@ -404,6 +404,7 @@ public class Ui {
     }
 
     public static void listContact() {
+        controller.listEmpre();
 
     }
 
