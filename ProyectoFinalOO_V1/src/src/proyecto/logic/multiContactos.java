@@ -107,7 +107,7 @@ public class multiContactos {
                 dicContacto.put("puesto", rs.getString("puesto"));
                 dicContacto.put("telefonos", rs.getString("telefonos"));
                 dicContacto.put("correo", rs.getString("correo"));
-                System.out.println(rs.getString("dicContacto"));
+                System.out.println(rs.getString("correo"));
 
                 listContacto.add(dicContacto);
             }
