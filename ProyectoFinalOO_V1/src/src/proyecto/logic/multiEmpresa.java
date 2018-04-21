@@ -182,9 +182,16 @@ public class multiEmpresa {
                 listEmpresa.add(dicContacto);
                 //System.out.println(rs.getString("listEmpresa"));
                 
-                
-
-              
+                for (Map<String, String> map : listEmpresa) {
+                    System.out.println(rs.getString("nombre"));
+                    System.out.println(rs.getString("razonSocial"));
+                    System.out.println(rs.getString("cedulaJuridica"));
+                    System.out.println(rs.getString("ubicacion"));
+                    System.out.println(rs.getString("direccion"));
+                    System.out.println(rs.getString("logo"));
+                    System.out.println(rs.getString("telefonos"));
+                    
+                }
            
             }
             String prueba = "it works!!";

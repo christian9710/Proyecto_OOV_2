@@ -36,7 +36,7 @@ public class multiContactos {
         Contactos conta = null;
         String sql;
 
-        sql = "INSERT INTO contacto "
+        sql = "INSERT INTO contacto (tipo,identificacion,nombre,puesto,telefono,correo)"
                 + "VALUES ('" + tipo + "','" + identificacion + "','" + nombre + "','" + puesto + "','" + telefono + "','" + correo + "');";
 
         try {
@@ -156,9 +156,20 @@ public class multiContactos {
                 dicContacto.put("puesto", rs.getString("puesto"));
                 dicContacto.put("telefono", rs.getString("telefono"));
                 dicContacto.put("correo", rs.getString("correo"));
-               // System.out.println(rs.getString("listContacto"));
+                 listContacto.add(dicContacto);
+                
+                for (Map<String, String> map : listContacto) {
+                    System.out.println(rs.getString("tipo"));
+                    System.out.println(rs.getString("identificacion"));
+                    System.out.println(rs.getString("nombre"));
+                    System.out.println(rs.getString("puesto"));
+                    System.out.println(rs.getString("telefono"));
+                    System.out.println(rs.getString("correo"));
+                    
+                }
+            
 
-                listContacto.add(dicContacto);
+               
             }
             String prueba = "it works!!";
         } catch (Exception ex) {

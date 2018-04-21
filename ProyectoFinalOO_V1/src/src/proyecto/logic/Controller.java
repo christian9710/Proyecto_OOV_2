@@ -96,14 +96,6 @@ public class Controller {
     //ingresar listar aqui
     public void listEmpre() {
         multiEmpresa.listEmpresa();
-
-        System.out.println(getString("nombre"));
-        System.out.println(getString("razonSocial"));
-        System.out.println(getString("cedulaJuridica"));
-        System.out.println(getString("ubicacion"));
-        System.out.println(getString("direccion"));
-        System.out.println(getString("logo"));
-        System.out.println(getString("telefonos"));
     }
 
     public void listProducto() throws Exception {
