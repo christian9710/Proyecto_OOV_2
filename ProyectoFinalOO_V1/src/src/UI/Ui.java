@@ -443,7 +443,7 @@ public class Ui {
         try {
             controller.listContact();
         } catch (Exception ex) {
-            Logger.getLogger(Ui.class.getName()).log(Level.SEVERE, null, ex);
+          
         }
 
     }
@@ -456,7 +456,7 @@ public class Ui {
         try {
             controller.listProducto();
         } catch (Exception ex) {
-            Logger.getLogger(Ui.class.getName()).log(Level.SEVERE, null, ex);
+           
         }
     }
 

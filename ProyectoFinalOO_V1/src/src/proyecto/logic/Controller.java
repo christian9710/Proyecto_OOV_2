@@ -1,9 +1,11 @@
 package src.proyecto.logic;
 
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 import javafx.scene.control.TextField;
+import static javax.swing.UIManager.getString;
 
 public class Controller {
 
@@ -49,11 +51,11 @@ public class Controller {
 
     }
 
-    public void addEmpresa(String nombre,String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
+    public void addEmpresa(String nombre, String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
             String telefono) {//Ingresar contactos
         try {
             Empresa empre;
-            empre = (new multiEmpresa().insertEmpresa(nombre,razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono));
+            empre = (new multiEmpresa().insertEmpresa(nombre, razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono));
 
         } catch (Exception e) {
         }
@@ -71,7 +73,7 @@ public class Controller {
         return datos;
     }
 
-    public void empreActua(String nombre,String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
+    public void empreActua(String nombre, String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
             String telefono) throws Exception {
         Empresa empre;
         empre = (new multiEmpresa()).buscar(razonSocial);
@@ -94,6 +96,14 @@ public class Controller {
     //ingresar listar aqui
     public void listEmpre() {
         multiEmpresa.listEmpresa();
+
+        System.out.println(getString("nombre"));
+        System.out.println(getString("razonSocial"));
+        System.out.println(getString("cedulaJuridica"));
+        System.out.println(getString("ubicacion"));
+        System.out.println(getString("direccion"));
+        System.out.println(getString("logo"));
+        System.out.println(getString("telefonos"));
     }
 
     public void listProducto() throws Exception {
@@ -150,7 +160,7 @@ public class Controller {
             String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo, String telefono
     ) throws Exception {
         Empresa empre_contac;
-        empre_contac = (new multiEmpresa()).insertEmpresa(nombre,razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
+        empre_contac = (new multiEmpresa()).insertEmpresa(nombre, razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
         empre_contac.agregarContact(tipo, identificacion, nombre, puesto, telefono, correo);
     }
 
