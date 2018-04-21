@@ -9,10 +9,30 @@ import java.sql.*;
 import java.util.*;
 import src.conection.Conector;
 
+
+/***
+ * 
+ * @author Brandon y CHristian
+ */
+
+
 public class multiContactos {
 
+    /**
+     *
+     * @param tipo
+     * @param identificacion
+     * @param nombre
+     * @param puesto
+     * @param telefono
+     * @param correo
+     * @return
+     * @throws SQLException
+     * @throws Exception
+     */
     public Contactos insertContact(String tipo, String identificacion, String nombre, String puesto, String telefono, String correo) throws
             java.sql.SQLException, Exception {
+        String id=null;
         Contactos conta = null;
         String sql;
 
@@ -26,11 +46,21 @@ public class multiContactos {
 
             //con.close();
         } catch (Exception ex) {
+            System.out.println(ex.getMessage());
             throw new Exception("El contacto ya ha sido registrado previamente, por favor ingrese otro");
         }
         return conta;
     }
 
+    /**
+     *
+     * @param identificacion
+     * @return
+     * @throws SQLException
+     *  
+     * @throws Exception
+     * Metodo para buscar cada contacto ,se declara una variable de resultSet
+     */
     public Contactos buscar(String identificacion) throws
             java.sql.SQLException, Exception {
         Contactos conta = null;
@@ -55,6 +85,13 @@ public class multiContactos {
         return conta;
     }
 
+    /**
+     *
+     * @param contacto
+     * @throws SQLException
+     * @throws Exception
+     * metodo para borrar cada contacto
+     */
     public void borrar(Contactos contacto) throws
             java.sql.SQLException, Exception {
         java.sql.ResultSet rs;
@@ -68,6 +105,14 @@ public class multiContactos {
         }
     }
 
+    /**
+     *
+     * @param contacto
+     * @throws SQLException
+     * @throws Exception
+     * 
+     * Metodo para hacer update del objeto contacto
+     */
     public void actualizarContacto(Contactos contacto) throws
             java.sql.SQLException, Exception {
         String sql;
@@ -90,6 +135,10 @@ public class multiContactos {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *Metodo para listar el objeto contacto 
+     * por medio de una consulta a la base de datos
+     */
     public static void listContact() {
         try {
 
@@ -105,9 +154,9 @@ public class multiContactos {
                 dicContacto.put("identificacion", rs.getString("identificacion"));
                 dicContacto.put("nombre", rs.getString("nombre"));
                 dicContacto.put("puesto", rs.getString("puesto"));
-                dicContacto.put("telefonos", rs.getString("telefonos"));
+                dicContacto.put("telefono", rs.getString("telefono"));
                 dicContacto.put("correo", rs.getString("correo"));
-                System.out.println(rs.getString("correo"));
+               // System.out.println(rs.getString("listContacto"));
 
                 listContacto.add(dicContacto);
             }

@@ -1,13 +1,26 @@
 package src.proyecto.logic;
 
+import java.sql.SQLException;
 import src.conection.Conector;
 
 /**
  *
- * @author unicomer
+ * @author christian  Rodriguez y Brandon fernandez
  */
 public class multiTarea {
 
+    /**
+     *
+     * @param tipo
+     * @param codigo
+     * @param descripcion
+     * @param estado
+     * @param responsable
+     * @return
+     * @throws Exception
+     * 
+     * metodo para insertar una tarea a la instalacion en la base de datos
+     */
     public Tarea agregarTarea(String tipo, String codigo, String descripcion, String estado, String responsable) throws Exception {
         Tarea miTarea = null;
         String sql;
@@ -23,7 +36,7 @@ public class multiTarea {
             miTarea = new Tarea(tipo, codigo, descripcion, estado, responsable);
         } catch (Exception ex) {
 
-            throw new Exception("Se agregó correctamente");
+            throw new Exception("Se agregÃ³ correctamente");
 
         }
 
@@ -31,6 +44,14 @@ public class multiTarea {
 
     }
 
+    /**
+     *
+     * @param codigo
+     * @return
+     * 
+     * metodo para buscar una tarea mediante el codigo
+     * @throws Exception
+     */
     public Tarea buscarTarea(String codigo) throws Exception {
         Tarea tar = null;
         java.sql.ResultSet rs;
@@ -56,6 +77,14 @@ public class multiTarea {
 
     }
 
+    /**
+     *
+     * @param tar
+     * @throws SQLException
+     * @throws Exception
+     * 
+     * Metodo para actualizar el objeto tarea en la base de datos
+     */
     public void actualizarTareaEstado(Tarea tar) throws
             java.sql.SQLException, Exception {
         String sql;

@@ -1,18 +1,38 @@
+/**
+ *
+ * Clase para conceptualizar el concepto de mejora en una caracteristica
+ */
 package src.proyecto.logic;
 
+/**
+ *
+ * @author christian Rodriguez y Brandon Fernandez
+ */
 public class Mejora extends CaracteristicasVer {
 
-	String descripcion;
+    String descripcion;
 
-	public Mejora(String descripcion) {
-		super(descripcion);
-	}
+    /**
+     *
+     * @param descripcion
+     */
+    public Mejora(String descripcion) {
+        super(descripcion);
+    }
 
-	public String getDescripcion() {
-		return descripcion;
-	}
+    /**
+     *
+     * @return
+     */
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+    /**
+     *
+     * @param descripcion
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 }

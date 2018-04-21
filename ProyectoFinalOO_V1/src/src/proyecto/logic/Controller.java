@@ -29,15 +29,10 @@ public class Controller {
         return datos;
     }
 
-    public void contacActuali(String tipo, String identificacion, String nombre, String puesto, String telefono, String correo) throws Exception {
+    public void contacActuali(String identificacion, String nombre) throws Exception {
         Contactos conta;
         conta = (new multiContactos()).buscar(identificacion);
-        conta.setTipo(tipo);
         conta.setNombre(nombre);
-        conta.setIdentificacion(identificacion);
-        conta.setPuesto(puesto);
-        conta.setTelefono(telefono);
-        conta.setCorreo(correo);
         (new multiContactos()).actualizarContacto(conta);
     }
 
@@ -54,7 +49,7 @@ public class Controller {
 
     }
 
-    public void addEmpresa(String nombre, String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
+    public void addEmpresa(String nombre,String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
             String telefono) {//Ingresar contactos
         try {
             Empresa empre;
@@ -76,10 +71,11 @@ public class Controller {
         return datos;
     }
 
-    public void empreActua(String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
+    public void empreActua(String nombre,String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo,
             String telefono) throws Exception {
         Empresa empre;
         empre = (new multiEmpresa()).buscar(razonSocial);
+        empre.setNombre(nombre);
         empre.setRazonSocial(razonSocial);
         empre.setCedulaJuridica(cedulaJuridica);
         empre.setUbicacion(ubicacion);
@@ -99,24 +95,24 @@ public class Controller {
     public void listEmpre() {
         multiEmpresa.listEmpresa();
     }
-    
+
     public void listProducto() throws Exception {
-      multiProducto.listarProducto();
-            
-      }
-    
+        multiProducto.listarProducto();
+
+    }
+
     public void listContact() throws Exception {
-      multiContactos.listContact();
-            
-      }
-    
-      public void listInsta() throws Exception {
-          try {
-              MultiIntalacion.listarInstalacion();
-          } catch (Exception e) {
-          }
-            
-      }
+        multiContactos.listContact();
+
+    }
+
+    public void listInsta() throws Exception {
+        try {
+            MultiIntalacion.listarInstalacion();
+        } catch (Exception e) {
+        }
+
+    }
 
     public void crearVersion(String formato, String fecha) throws Exception {
         Version miVersion;
@@ -150,11 +146,11 @@ public class Controller {
         (new multiVersion()).actualizarVersion(miVersion);
     }
 
-    public void agregarContacEmpre(String tipo, String identificacion, String nombre, String puesto, String _telefono, String correo,String _nombre,
+    public void agregarContacEmpre(String tipo, String identificacion, String nombre, String puesto, String _telefono, String correo,
             String razonSocial, String cedulaJuridica, String ubicacion, String direccion, String logo, String telefono
     ) throws Exception {
         Empresa empre_contac;
-        empre_contac = (new multiEmpresa()).insertEmpresa(_nombre,razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
+        empre_contac = (new multiEmpresa()).insertEmpresa(nombre,razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
         empre_contac.agregarContact(tipo, identificacion, nombre, puesto, telefono, correo);
     }
 
@@ -187,8 +183,8 @@ public class Controller {
         (new MultiIntalacion()).borrar(insta);
     }
 
-    public void instaAct(String estado,String fecha,String  hora) throws Exception {
-           Instalacion insta;
+    public void instaAct(String estado, String fecha, String hora) throws Exception {
+        Instalacion insta;
         insta = (new MultiIntalacion()).buscar(estado);
 
         insta.setEstado(estado);
@@ -233,6 +229,14 @@ public class Controller {
         (new multiProducto()).actualizarProducto(miProductos);
     }
 
+    public void listProd() throws Exception {
+        try {
+            multiProducto.listarProducto();
+        } catch (Exception e) {
+        }
+
+    }
+
     public void addTareas(String tipo, String codigo, String descripcion, String estado, String responsable) throws Exception {
         Tarea miTarea;
         miTarea = (new multiTarea()).agregarTarea(tipo, codigo, descripcion, estado, responsable);
@@ -247,7 +251,5 @@ public class Controller {
 
         (new multiTarea()).actualizarTareaEstado(miTarea);
     }
-
-    
 
 }

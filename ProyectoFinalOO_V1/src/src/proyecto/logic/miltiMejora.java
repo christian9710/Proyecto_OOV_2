@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *dClase parainsertar una caracteristica de mejora
  */
 package src.proyecto.logic;
 
@@ -9,10 +7,20 @@ import src.conection.Conector;
 
 /**
  *
- * @author unicomer
+ * @author Christian Rodriguez y Brandon Fernandez
+ *
+ *
+ *
  */
 public class miltiMejora {
 
+    /**
+     *
+     * @author Christian Rodriguez y Brandon Fernandez
+     *
+     *
+     * Metodo para agregar un objeto de tipo mejora a la base de datos 
+     */
     public Mejora agregarMejora(String descripcion) throws Exception {
 
         String sql;
@@ -28,7 +36,7 @@ public class miltiMejora {
             miMejora = new Mejora(descripcion);
         } catch (Exception ex) {
 
-            throw new Exception("Se agregó correctamente");
+            throw new Exception("Se agregÃ³ correctamente");
 
         }
 

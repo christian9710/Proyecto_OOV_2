@@ -1,6 +1,8 @@
 package src.UI;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import src.proyecto.logic.Controller;
@@ -29,10 +31,13 @@ public class Ui {
         out.println();
         out.println("1.  Registrar clientes.");
         out.println("2.  Registrar empresa.");
-        out.println("3.  Registar instalaciones .");
+        out.println("3.  Registar instalaciones.");
         out.println("4.  Registrar tares");
-        out.println("5.  Menu Modificacion Datos.");
-        out.println("6.  Salir del Sistema.");
+        out.println("5.  Registrar producto");
+        
+        
+        out.println("6.  Menu Modificacion Datos.");
+        out.println("7.  Salir del Sistema.");
         out.println();
     }
 
@@ -71,11 +76,14 @@ public class Ui {
                 break;
 
             case 5:
-                menuModificar();
+                registrarProducto();
 
                 break;
 
             case 6:
+               menuModificar();
+                
+                 case 7:
                 noSalir = false;
 
             default:
@@ -109,6 +117,29 @@ public class Ui {
         }
 
     }
+    
+    public static void registrarProducto() throws IOException, Exception{
+     String nombre, logo, descripcion;
+    
+     String numeroVersion;
+   String  fechaCreacion ;
+  
+     
+            out.println("Ingrese el nombre del producto : ");
+            nombre = in.readLine();
+            out.println("Ingrese el  logo del producto : ");
+            logo = in.readLine();
+            out.println("Ingrese la descripcion del producto : ");
+            descripcion = in.readLine();
+            out.println("Ingrese el numero de version : ");
+            numeroVersion = in.readLine();
+              out.println("Ingrese la fecha : ");
+            fechaCreacion = in.readLine();
+            
+          
+     controller.agregarProducto(nombre, logo, descripcion);
+     controller.crearVersion(logo, fechaCreacion);
+    }
 
     public static void registrarEmpresa() {
 
@@ -129,12 +160,13 @@ public class Ui {
             out.println("Ingrese el telefono de la empresa : ");
             telefono = in.readLine();
 
-            controller.addEmpresa(nombre, razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
+            controller.addEmpresa(nombre,razonSocial, cedulaJuridica, ubicacion, direccion, logo, telefono);
 
         } catch (Exception e) {
         }
 
     }
+    
 
     public static void registrarInstalaciones() {
 
@@ -142,7 +174,7 @@ public class Ui {
             String estado, fecha, hora;
             out.println("Ingrese el estado de la instalacion  : ");
             estado = in.readLine();
-            out.println("Ingrese la fecha planeada para la instalacion  : ");
+            out.println("Ingrese la fecha planeada para la instalacion  (formato dd/mm/yyyy)  : ");
             fecha = in.readLine();
             out.println("Ingrese la hora estimada para la instalacion  : ");
             hora = in.readLine();
@@ -158,6 +190,7 @@ public class Ui {
         String tipo, codigo, descripcion, estado, responsable;
 
         try {
+            out.println("");
             out.println("Ingrese el tipo de tarea : ");
             tipo = in.readLine();
             out.println("Ingrese el codigo de la tarea : ");
@@ -261,25 +294,20 @@ public class Ui {
         }
         return noSalir;
     }
+    
+    
+    
+   
 
     public static void modificarContact() {
 
         try {
-             String tipoContacto, identificacion, nombre, puesto, telefono, correo;
-            out.println("Ingrese el nombre del contacto : ");
-            nombre = in.readLine();
-            out.println("Ingrese la cedula del contacto : ");
+            String identificacion, nombre;
+            out.println("Ingrese la razon social  del contacto a modificar");
             identificacion = in.readLine();
-            out.println("Ingrese el telefono del contacto : ");
-            telefono = in.readLine();
-            out.println("Ingrese el tipo de contacto : ");
-            tipoContacto = in.readLine();
-            out.println("Ingrese el puesto del contacto : ");
-            puesto = in.readLine();
-            out.println("Ingrese el correo electronico del contacto : ");
-            correo = in.readLine();
-
-            controller.contacActuali(tipoContacto, identificacion, nombre, puesto, telefono, correo);
+            out.println("Ingrese el nombre de la empresa a modificar");
+            nombre = in.readLine();
+            controller.contacActuali(identificacion, nombre);
         } catch (Exception ex) {
 
         }
@@ -346,9 +374,9 @@ public class Ui {
         boolean noSalir = true;
 
         do {
-            mostrarMenuMod();
-            opc = leerOpcionMod();
-            noSalir = ejecutarAccionMod(opc);
+            mostrarMenuList();
+            opc = leerOpcionList();
+            noSalir = ejecutarAccionList(opc);
         } while (noSalir);
 
     }
@@ -380,7 +408,7 @@ public class Ui {
         switch (popcion) {
             case 1:
 
-                listContact();
+               listContact();
                 ListEmpre();
 
                 break;

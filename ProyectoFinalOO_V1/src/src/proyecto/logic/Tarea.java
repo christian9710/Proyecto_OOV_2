@@ -1,14 +1,30 @@
 package src.proyecto.logic;
 
+/**
+ *
+ * @author Christian Rodriguez y Brandon Fernandez
+ */
 public class Tarea {
 
 	String tipo, codigo, descripcion, estado, responsable;
 
-	public Tarea() {
+    /**
+     *
+     */
+    public Tarea() {
 
 	}
 	
-	public Tarea(String tipo, String codigo, String descripcion, String estado, String responsable) {
+    /**
+     *
+     * @param tipo
+     * @param codigo
+     * @param descripcion
+     * @param estado
+     * @para 
+     * Metodo para iniicializar todos las variables
+     */
+    public Tarea(String tipo, String codigo, String descripcion, String estado, String responsable) {
 		this.tipo=tipo;
 		this.codigo=codigo;
 		this.descripcion=descripcion;
@@ -17,47 +33,114 @@ public class Tarea {
 
 	}
 
+    /**
+     *
+     * @param codigo
+     * @param descripcion
+     * @param estado
+     * 
+     * 
+     */
     public Tarea(String codigo, String descripcion, String estado) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-	public String getTipo() {
+    /**
+     *
+     * @return
+     * 
+     * Metodo para obtener el tipo
+     */
+    public String getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+    /**
+     *
+     * @param tipo
+     * 
+     * Metodo para setear el tipo
+     */
+    public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
-	public String getCodigo() {
+    /**
+     *
+     * @return
+     * 
+     * metodo para obtener el codigo
+     */
+    public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(String codigo) {
+    /**
+     *
+     * @param codigo
+     * 
+     * metodo para setear el codigo
+     */
+    public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
-	public String getDescripcion() {
+    /**
+     *
+     * @return
+     * 
+     * Metod para obtener la descripcion
+     */
+    public String getDescripcion() {
 		return descripcion;
 	}
 
-	public void setDescripcion(String descripcion) {
+    /**
+     *
+     * @param descripcion
+     * 
+     * metodo para setear la descripcion
+     */
+    public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
-	public String getEstado() {
+    /**
+     *
+     * @return
+     * metodo para obtener el estado 
+     */
+    public String getEstado() {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
+    /**
+     *
+     * @param estado
+     * 
+     * metodo para setear el estado 
+     */
+    public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
-	public String getResponsable() {
+    /**
+     *
+     * @return
+     * 
+     * metod para obtener el responsable
+     */
+    public String getResponsable() {
 		return responsable;
 	}
 
-	public void setResponsable(String responsable) {
+    /**
+     *
+     * @param responsable
+     * 
+     * metodo para setear el responsable
+     */
+    public void setResponsable(String responsable) {
 		this.responsable = responsable;
 	}
 }

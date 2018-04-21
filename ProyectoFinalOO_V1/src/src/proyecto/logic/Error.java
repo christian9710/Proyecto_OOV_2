@@ -1,35 +1,56 @@
 package src.proyecto.logic;
 
-
+/**
+ *
+ * @author Christian Rodriguez y Brandon Fernandez
+ */
 public class Error extends CaracteristicasVer {
 
-	@Override
-	public String toString() {
-		return "Error [fechaReporte=" + fechaReporte + "]";
-	}
+    static String descripcion;
+    static String fechaReporte;
 
-	static String descripcion;
-	String fechaReporte;
+    /**
+     *
+     */
+    public Error() {
+        super(descripcion);
 
-	public Error() {
-		super(descripcion);
+    }
 
-	}
+    /**
+     *
+     * @param descripcion
+     * @param fechaReporte
+     */
+    
+    
+    public Error(String descripcion, String fechaReporte) {
+        super(descripcion);
+        this.descripcion = descripcion;
 
-	public Error(String descripcion, String fechaReporte) {
-		super(descripcion);
+        this.fechaReporte = fechaReporte;
 
-		this.fechaReporte = fechaReporte;
+    }
 
-	}
+    @Override
+    public String toString() {
+        return "Error [fechaReporte=" + fechaReporte + "]";
+    }
 
-	public String getFechaReporte() {
-		return fechaReporte;
-	}
+    /**
+     *
+     * @return
+     */
+    public String getFechaReporte() {
+        return fechaReporte;
+    }
 
-	public void setFechaReporte(String fechaReporte) {
-		this.fechaReporte = fechaReporte;
-	}
+    /**
+     *
+     * @param fechaReporte
+     */
+    public void setFechaReporte(String fechaReporte) {
+        this.fechaReporte = fechaReporte;
+    }
 
 }
-
